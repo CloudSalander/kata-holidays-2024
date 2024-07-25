@@ -17,6 +17,11 @@ class Holiday extends Activity{
         parent::__construct($name,$date);
         $this->type = $type;
     }
+
+    public function do();
+    public function cancel();
+
+
 }
 
 ?>
