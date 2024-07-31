@@ -19,9 +19,19 @@ class Activities {
     }
 
     private function showHolidays(): string {
-        echo "Choose your plan! ".PHP_EOL;
+        echo "Choose your plan!(tip the date) ".PHP_EOL;
         foreach($this->activities as $activity) {
             if(get_class($activity) === "Holiday") {
+                echo $activity->getName()."(".$activity->getDate().")".PHP_EOL;
+            }
+        }
+        return readline();
+    }
+
+    private function showHomework(): string {
+        echo "Choose your homework to deliver or redeliver!(tip the date) ".PHP_EOL;
+        foreach($this->activities as $activity) {
+            if(get_class($activity) === "Homework") {
                 echo $activity->getName()."(".$activity->getDate().")".PHP_EOL;
             }
         }
@@ -41,5 +51,11 @@ class Activities {
             unset($this->activities[$date]);
         } 
         else echo Activities::ANTIHACKER_MSG; 
+    }
+
+    public function deliverHomework(string $github_url, string $comments) {
+        $date = $this->showHomework();
+        if(array_key_exists($date,$this->activities)) $this->activities[$date]->deliver($github_url,$comments); 
+        else echo Activities::ANTIHACKER_MSG;
     }
 }

@@ -15,11 +15,12 @@ $activities = new Activities();
 $activities->addActivity($holiday);
 $activities->addActivity($holiday2);
 
-
+/*
 $activities->doHolidayPlan();
 $activities->cancelHolidayPlan();
 $activities->doHolidayPlan();
-
-
+*/
 $activities->addActivity($homework);
+$activities->deliverHomework("fassd","jajajaja");
+var_dump($homework);
 ?>
