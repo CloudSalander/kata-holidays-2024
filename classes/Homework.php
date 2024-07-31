@@ -1,6 +1,6 @@
 <?php
 
-require 'Activity.php';
+require_once 'Activity.php';
 
 enum Sprint {
     case PHP_HTML;

@@ -1,6 +1,6 @@
 <?php 
 
-require 'Activity.php';
+require_once 'Activity.php';
 
 enum Type {
     case RESTAURANT;
@@ -17,9 +17,6 @@ class Holiday extends Activity{
         parent::__construct($name,$date);
         $this->type = $type;
     }
-
-    public function do();
-    public function cancel();
 
 
 }
