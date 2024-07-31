@@ -17,7 +17,7 @@ class Homework extends Activity {
 
     public function __construct(string $name, string $date, Sprint $sprint) {
         parent::__construct($name,$date);
-        $this->type = $type;
+        $this->sprint = $sprint;
     }
 }
 
