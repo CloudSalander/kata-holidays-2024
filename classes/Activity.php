@@ -11,4 +11,12 @@ abstract class Activity {
         $this->date = $date;
     }
 
+    public function getDate(): string {
+        return $this->date;
+    }
+
+    public function getName(): string {
+        return $this->name;
+    }
+
 }
