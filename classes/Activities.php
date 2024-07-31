@@ -2,6 +2,7 @@
 
 class Activities {
     private array $activities;
+    const ANTIHACKER_MSG = "Hacker!! Get the f*ck out!".PHP_EOL;
 
     public function __construct() {
         $this->activities = [];
@@ -18,7 +19,7 @@ class Activities {
     }
 
     private function showHolidays(): string {
-        echo "What plan you want to enjoy?(Please, tip the date of the plan or 0 to avoid) ;)".PHP_EOL;
+        echo "Choose your plan! ".PHP_EOL;
         foreach($this->activities as $activity) {
             if(get_class($activity) === "Holiday") {
                 echo $activity->getName()."(".$activity->getDate().")".PHP_EOL;
@@ -30,6 +31,15 @@ class Activities {
     public function doHolidayPlan(): void {
         $date = $this->showHolidays();
         if(array_key_exists($date,$this->activities)) $this->activities[$date]->do(); 
-        else echo "Hacker!! Get the f*ck out!".PHP_EOL;
+        else echo Activities::ANTIHACKER_MSG;
+    }
+
+    public function cancelHolidayPlan(): void {
+        $date = $this->showHolidays();
+        if(array_key_exists($date,$this->activities)) {
+            $this->activities[$date]->cancel();
+            unset($this->activities[$date]);
+        } 
+        else echo Activities::ANTIHACKER_MSG; 
     }
 }

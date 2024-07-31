@@ -16,4 +16,7 @@ $activities->addActivity($holiday);
 $activities->addActivity($holiday2);
 
 $activities->doHolidayPlan();
+$activities->cancelHolidayPlan();
+
+$activities->doHolidayPlan();
 ?>
