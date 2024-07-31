@@ -19,12 +19,14 @@ class Holiday extends Activity{
         $this->type = $type;
     }
 
-    public function cancel() {
-        echo "We won't enjoy ".$this->name.PHP_EOL;
+    public function do():void {
+        $msg_index = array_rand(Holiday::MSGS); 
+        echo Holiday::MSGS[$msg_index].$this->name.PHP_EOL;
     }
 
-
-
+    public function cancel():void {
+       echo "We won't enjoy ".$this->name.PHP_EOL;
+    }
 }
 
 ?>
