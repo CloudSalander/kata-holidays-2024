@@ -22,5 +22,6 @@ $activities->doHolidayPlan();
 */
 $activities->addActivity($homework);
 $activities->deliverHomework("fassd","jajajaja");
+$activities->reDeliverHomework("fassd","jajajaja");
 var_dump($homework);
 ?>

@@ -53,9 +53,20 @@ class Activities {
         else echo Activities::ANTIHACKER_MSG; 
     }
 
-    public function deliverHomework(string $github_url, string $comments) {
+    public function deliverHomework(string $github_url, string $comments): void {
         $date = $this->showHomework();
         if(array_key_exists($date,$this->activities)) $this->activities[$date]->deliver($github_url,$comments); 
         else echo Activities::ANTIHACKER_MSG;
+    }
+
+    public function reDeliverHomework(string $github_url, string $comments): void {
+        $date = $this->showHomework();
+        if($this->isDelivered($date)) $this->activities[$date]->deliver($github_url,$comments); 
+        else echo "Hei, you can't redeliver things non-delivered ;)";
+    }
+
+    private function isDelivered(string $homework_date): bool {
+        $homework = $this->activities[$homework_date];
+        return array_key_exists($homework_date,$this->activities) && $homework->getGithubUrl() != ""; 
     }
 }
